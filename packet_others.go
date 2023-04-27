@@ -16,7 +16,7 @@ import (
 // errUnimplemented is returned as appropriate
 var errUnimplemented = fmt.Errorf("darwinpacket: not implemented on %s", runtime.GOOS)
 
-func listen(_ *net.Interface, _ Type, _ int, _ *Config) (*Conn, error) { return nil, errUnimplemented }
+func listen(_ *net.Interface, _ int, _ *Config) (*Conn, error) { return nil, errUnimplemented }
 
 func (*Conn) readFrom(_ []byte) (int, net.Addr, error)  { return 0, nil, errUnimplemented }
 func (*Conn) writeTo(_ []byte, _ net.Addr) (int, error) { return 0, errUnimplemented }

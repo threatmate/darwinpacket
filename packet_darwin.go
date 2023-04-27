@@ -22,7 +22,7 @@ func errUnimplemented(call string) error {
 	return fmt.Errorf("%s(): not implemented on %s", call, runtime.GOOS)
 }
 
-func listen(ifi *net.Interface, socketType Type, protocol int, cfg *Config) (*Conn, error) {
+func listen(ifi *net.Interface, protocol int, cfg *Config) (*Conn, error) {
 	var f *os.File
 	var err error
 
