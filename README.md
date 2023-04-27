@@ -8,6 +8,12 @@ Golang GOOS targets:
 
 * `darwin`
 
+## Usage
+
+```
+conn, err := darwinpacket.Listen(iface, protocol, &darwinpacket.Config{})
+```
+
 ## History
 
 `github.com/mdlayher` has specifically said that `github.com/mdlayher/packet` will only support Linux and
