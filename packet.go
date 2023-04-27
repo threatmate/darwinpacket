@@ -50,30 +50,13 @@ const (
 	DirectionOut
 )
 
-// Type is a socket type used when creating a Conn with Listen.
-//
-//enumcheck:exhaustive
-type Type int
-
-const ()
-
-// Possible Type values. Note that the zero value is not valid: callers must
-// always specify one of Raw or Datagram when calling Listen.
-const (
-	_ Type = iota
-	Raw
-	Datagram
-)
-
 // Listen opens a packet sockets connection on the specified interface, using
-// the given socket type and protocol values.
-//
-// The socket type must be one of the Type constants: Raw or Datagram.
+// the given protocol value.
 //
 // The Config specifies optional configuration for the Conn. A nil *Config
 // applies the default configuration.
-func Listen(ifi *net.Interface, socketType Type, protocol int, cfg *Config) (*Conn, error) {
-	l, err := listen(ifi, socketType, protocol, cfg)
+func Listen(ifi *net.Interface, protocol int, cfg *Config) (*Conn, error) {
+	l, err := listen(ifi, protocol, cfg)
 	if err != nil {
 		return nil, opError(opListen, err, &Addr{HardwareAddr: ifi.HardwareAddr})
 	}
