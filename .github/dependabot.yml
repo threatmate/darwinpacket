@@ -1,0 +1,43 @@
+# Dependabot keeps this repository's dependencies current.
+#
+# Updates are checked weekly and grouped into one pull request per
+# ecosystem. A new release waits 7 days (cooldown) before Dependabot
+# proposes it, so a compromised or broken release is usually pulled
+# before it reaches us. Security updates for a known vulnerability are
+# not held back by the cooldown.
+
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    cooldown:
+      default-days: 7
+    groups:
+      gomod:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci"
+    open-pull-requests-limit: 5
